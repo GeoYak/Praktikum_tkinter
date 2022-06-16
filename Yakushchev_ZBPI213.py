@@ -136,40 +136,32 @@ def decode_ch(sting_of_elements):
 
 #Задание 9.Создайте класс с названием Student.
 class Student:
-    
+
     def __init__(self, name, surname, grades=[3,4,5]):
         self.name = name
         self.surname = surname
         self.fullname = f'{name} {surname}'
         self.grades = grades
-  
+     
     def greeting(self):
         return f'Hello, I am Student'
     
     def mean_grade(self):
-        self.mean_grade = sum(self.grades)/len(self.grades)
-        return self.mean_grade
+        self.meangrade = sum(self.grades)/len(self.grades)
+        return self.meangrade
     
     def is_otlichnik(self):
-        if self.mean_grade()>=4.5:
+        if self.mean_grade() >= 4.5:
             return 'YES'
         else:
             return 'NO'
-        
-    def __add__(self,student):
-        temp=Student(student.name, student.surname, student.grades)
-        return temp 
-
-    def summa_studentov(self):
-        return f'{student1.name} is friends with {student2.name}'
     
-    def polnoe_imya(self):
+    def __add__(self, other):
+        return f'{self.name} is friends with {other.name}'
+    
+    def __str__(self):
         return self.fullname
     
-#student1=Student('Георгий','Якущев',[3,4,5])
-#student2=Student('Иван','Иванов',[5,4,5])
-#student3=student1+student2
-#student3.summa_studentov()
 
 
 
