@@ -133,7 +133,7 @@ def decode_ch(sting_of_elements):
 #Задание 9.Создайте класс с названием Student.
 class Student:
     
-    def __init__(self, name, surname, grades):
+    def __init__(self, name, surname, grades=[3,4,5]):
         self.name = name
         self.surname = surname
         self.fullname = f'{name} {surname}'
