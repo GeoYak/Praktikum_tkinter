@@ -143,7 +143,7 @@ class Student:
         self.fullname = f'{name} {surname}'
         self.grades = grades
   
-    def greetings(self):
+    def greeting(self):
         return f'Hello, I am Student'
     
     def mean_grade(self):
