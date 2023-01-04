@@ -25,9 +25,9 @@ class Snake:
 class Food:
     def __init__(self):
         # 1200/25 = 48
-        x = random.randint(0, (width/space)-2)*space
+        x = random.randint(0, (width/space)-1)*space
         # 800/25 = 32
-        y = random.randint(0, (height/space)-2)*space
+        y = random.randint(0, (height/space)-1)*space
         self.coord = [x, y]
         c.create_rectangle(x, y, x + space, y + space, fill=food_color)
 
@@ -50,7 +50,9 @@ def move(snake, food):
 
     if x == food.coord[0] and y == food.coord[1]:
         global score
+        global speed
         score += 1
+        speed -= 2
         label.config(text=f'Счет: {score}')
         c.delete('food')
         food = Food()
@@ -84,9 +86,9 @@ def change_direction(new_dir):
 def collision(snake):
     x, y = snake.coord[0]
 
-    if x < 0 or x >= width-space:
+    if x < 0 or x >= width:
         return True
-    elif y < 0 or y >= height-space:
+    elif y < 0 or y >= height:
         return True
     for snake_length in snake.coord[1:]:
         if x == snake_length[0] and y == snake_length[1]:
@@ -99,7 +101,7 @@ def game_over():
 #
 root = Tk()
 root.title('Змейка')
-root.maxsize(1200,800)
+root.resizable(width=False, height=False)
 root.bind('<Down>', lambda event: change_direction('down'))
 root.bind('<Up>', lambda event: change_direction('up'))
 root.bind('<Left>', lambda event: change_direction('left'))
