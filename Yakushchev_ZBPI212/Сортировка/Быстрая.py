@@ -23,11 +23,12 @@ def partition(data, head, tail, drawData, tick):
 
 
 def quick_sort(data, head, tail, drawData, tick):
-    partitionIdx = partition(data, head, tail, drawData, tick)
-    #Левая часть
-    quick_sort(data, head, partitionIdx-1, drawData, tick)
-    #Правая часть
-    quick_sort(data, partitionIdx+1, tail, drawData, tick)
+    if head < tail:
+        partitionIdx = partition(data, head, tail, drawData, tick)
+        #Левая часть
+        quick_sort(data, head, partitionIdx-1, drawData, tick)
+        #Правая часть
+        quick_sort(data, partitionIdx+1, tail, drawData, tick)
 
 def getColor(dataLen, head, tail, border, currIdx, isSwaping = False):
     colorArray = []
