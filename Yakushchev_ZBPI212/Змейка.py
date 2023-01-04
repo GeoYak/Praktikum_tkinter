@@ -25,9 +25,9 @@ class Snake:
 class Food:
     def __init__(self):
         # 1200/25 = 48
-        x = random.randint(0, (width/space)-1)*space
+        x = random.randint(0, (width//space)-1)*space
         # 800/25 = 32
-        y = random.randint(0, (height/space)-1)*space
+        y = random.randint(0, (height//space)-1)*space
         self.coord = [x, y]
         c.create_rectangle(x, y, x + space, y + space, fill=food_color)
 
